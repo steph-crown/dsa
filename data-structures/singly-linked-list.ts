@@ -56,8 +56,37 @@ class SinglyLinkedList<T> {
       const node = new NodeItem(data, this.head);
       this.head = node;
     }
+
+    this.size++;
   }
 
+  // complexity: O(N)
+  public insertAfter(data: T, newValue: T) {
+    let trav = this.head;
+
+    while (trav) {
+      if (!trav) {
+        throw new Error("No data found");
+      }
+
+      if (trav.data === data) {
+        const node = new NodeItem(newValue, trav.next);
+
+        if (!trav.next) {
+          this.tail = node;
+        }
+
+        trav.next = node;
+
+        this.size++;
+        return node;
+      }
+
+      trav = trav?.next;
+    }
+  }
+
+  // complexity: O(n)
   public clear() {
     let trav = this.head;
 
@@ -77,8 +106,8 @@ class SinglyLinkedList<T> {
 const list = new SinglyLinkedList();
 list.append(8);
 list.append(4);
-list.append(9);
 list.prepend(1);
+list.insertAfter(4, 5);
 console.log({ thelist: list });
 list.clear();
 console.log({ thelist: list });
