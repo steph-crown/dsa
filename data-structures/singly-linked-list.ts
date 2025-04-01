@@ -23,8 +23,8 @@ class NodeItem<T> {
 }
 
 class SinglyLinkedList<T> {
-  head: NodeItem<T | null> | null = null;
-  tail: NodeItem<T | null> | null = null;
+  private head: NodeItem<T | null> | null = null;
+  private tail: NodeItem<T | null> | null = null;
   size = 0;
 
   constructor() {}
@@ -60,6 +60,7 @@ class SinglyLinkedList<T> {
     this.size++;
   }
 
+  // insert value after another value
   // complexity: O(N)
   public insertAfter(data: T, newValue: T) {
     let trav = this.head;
@@ -86,6 +87,34 @@ class SinglyLinkedList<T> {
     }
   }
 
+  // get the first value if it exists
+  // O(1)
+  public peekFirst() {
+    if (this.isEmpty()) throw new Error("No data");
+    return this.head?.data;
+  }
+
+  // get the last value if it exists
+  // O(1)
+  public peekLast() {
+    if (this.isEmpty()) throw new Error("No data");
+    return this.tail?.data;
+  }
+
+  public removeFirst() {
+    if (this.isEmpty()) throw new Error("No data");
+    const next = this.head?.next;
+
+    if (!next) {
+      this.head = this.tail = null;
+      this.size = 0;
+    } else {
+      this.head = next;
+      --this.size;
+    }
+  }
+
+  // clear
   // complexity: O(n)
   public clear() {
     let trav = this.head;
@@ -108,6 +137,5 @@ list.append(8);
 list.append(4);
 list.prepend(1);
 list.insertAfter(4, 5);
-console.log({ thelist: list });
-list.clear();
-console.log({ thelist: list });
+list.removeFirst();
+console.log({ thelist: list, first: list.peekFirst(), last: list.peekLast() });
