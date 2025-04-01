@@ -114,6 +114,38 @@ class SinglyLinkedList<T> {
     }
   }
 
+  // remove last item
+  // O(n)
+  public removeLast() {
+    if (this.isEmpty()) throw new Error("No data");
+
+    let trav = this.head;
+    let travNext = this.head?.next;
+
+    if (!travNext) {
+      this.head = this.tail = null;
+      this.size = 0;
+    }
+
+    while (travNext) {
+      // tail
+      if (!travNext.next) {
+        trav!.next = travNext = null;
+        this.tail = trav;
+        --this.size;
+      } else {
+        trav = travNext;
+        travNext = travNext.next;
+      }
+    }
+  }
+
+  // public remove(node: NodeItem<T>) {
+  //   if (!node.next) {
+  //     this;
+  //   }
+  // }
+
   // clear
   // complexity: O(n)
   public clear() {
@@ -138,4 +170,6 @@ list.append(4);
 list.prepend(1);
 list.insertAfter(4, 5);
 list.removeFirst();
-console.log({ thelist: list, first: list.peekFirst(), last: list.peekLast() });
+console.log({ thelist: list });
+list.removeLast();
+console.log({ thelist: list });
