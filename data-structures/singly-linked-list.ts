@@ -104,6 +104,7 @@ class SinglyLinkedList<T> {
   public removeFirst() {
     if (this.isEmpty()) throw new Error("No data");
     const next = this.head?.next;
+    const data = this.head?.data;
 
     if (!next) {
       this.head = this.tail = null;
@@ -112,6 +113,8 @@ class SinglyLinkedList<T> {
       this.head = next;
       --this.size;
     }
+
+    return data;
   }
 
   // remove last item
@@ -130,9 +133,12 @@ class SinglyLinkedList<T> {
     while (travNext) {
       // tail
       if (!travNext.next) {
+        const data = travNext?.data;
         trav!.next = travNext = null;
         this.tail = trav;
         --this.size;
+
+        return data;
       } else {
         trav = travNext;
         travNext = travNext.next;
@@ -140,11 +146,29 @@ class SinglyLinkedList<T> {
     }
   }
 
-  // public remove(node: NodeItem<T>) {
-  //   if (!node.next) {
-  //     this;
-  //   }
-  // }
+  public remove(node: NodeItem<T>) {
+    if (!node.next) {
+      this.removeLast();
+    }
+
+    let trav = this.head;
+    let travNext = this.head?.next;
+
+    while (travNext) {
+      const isMatch =
+        travNext?.data === node.data && travNext.next === node.next;
+
+      if (isMatch) {
+        trav!.next = travNext.next;
+        travNext = null;
+      } else {
+        trav = travNext;
+        travNext = travNext.next;
+      }
+    }
+
+    return node.data;
+  }
 
   // clear
   // complexity: O(n)
