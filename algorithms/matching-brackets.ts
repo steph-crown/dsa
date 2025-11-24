@@ -116,7 +116,7 @@ function matchingBrackets(s: string) {
     }
   }
 
-  return !!stack.isEmpty;
+  return stack.isEmpty;
 }
 
 console.log(matchingBrackets("[{}[(])](({{}})())"));

@@ -152,6 +152,18 @@ export class DoublyLinkedList<T> {
     this.head = this.tail = null;
     this.size = 0;
   }
+
+  public toString() {
+    let trav = this.head;
+    let str = "";
+
+    while (trav) {
+      str = `${str}${(trav.data || "")?.toString()}`;
+      trav = trav.next;
+    }
+
+    return str;
+  }
 }
 
 // const list = new DoublyLinkedList();
