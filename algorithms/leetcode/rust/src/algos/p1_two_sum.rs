@@ -11,9 +11,9 @@ impl Solution {
 
       if let Some(&prev_index) = seen.get(&compliment) {
         return vec![i as i32, prev_index as i32];
-      } else {
-        seen.insert(num, i);
       }
+
+      seen.insert(num, i);
     }
 
     vec![]
