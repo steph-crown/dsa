@@ -6,6 +6,11 @@ fn main() {
   let target = 6;
   let res = p1_two_sum::Solution::two_sum(nums, target);
   println!("{:#?}", res);
+
+  let (mut x, y): (usize, usize) = (2, 5);
+  x = x.max(y);
+
+  println!("sk{}", x)
 }
 
 pub mod algos;
