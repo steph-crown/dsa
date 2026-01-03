@@ -14,10 +14,10 @@ function numOfWays(n: number): number {
   return (aba + abc) % MOD;
 }
 
-// ABA
+// ABA (previous row)
 // BAB. BAC  BCB  CAB.  CAC
 
-// ABC
+// ABC (previous row)
 // BAB.  BCA.  BCB   CAB
 
 /*ABA           ABC
