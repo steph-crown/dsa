@@ -1,4 +1,6 @@
-use crate::algos::{p1_two_sum, p1411_no_ways_to_paint_grid};
+use crate::algos::{
+  p1_two_sum, p1390_four_divisors, p1411_no_ways_to_paint_grid, p1975_max_matrix_sum,
+};
 
 fn main() {
   // problem 1
@@ -12,8 +14,17 @@ fn main() {
 
   // println!("sk{}", x)
 
-  let x = p1411_no_ways_to_paint_grid::Solution::num_of_ways(2);
-  println!("Value {x}");
+  // let x = p1411_no_ways_to_paint_grid::Solution::num_of_ways(2);
+  // println!("Value {x}");
+
+  // let x = p1390_four_divisors::Solution::sum_four_divisors(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+  let x = p1975_max_matrix_sum::Solution::max_matrix_sum(vec![
+    vec![-1, 0, -1],
+    vec![-2, 1, 3],
+    vec![3, 2, 2],
+  ]);
+  println!("answer {x} ");
 }
 
 pub mod algos;
