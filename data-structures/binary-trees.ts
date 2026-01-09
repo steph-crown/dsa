@@ -51,9 +51,35 @@ class BinaryTree<T> {
       this.insert(item);
     }
   }
+
+  depthFirst() {
+    if (!this.root) return;
+
+    const stack = [this.root];
+    while (stack.length) {
+      const currentNode = stack.pop();
+      console.log(currentNode?.val);
+
+      if (currentNode?.right) stack.push(currentNode.right);
+      if (currentNode?.left) stack.push(currentNode.left);
+    }
+  }
+
+  depthFirstRec(currentNode = this.root) {
+    if (!currentNode) return;
+    console.log(currentNode.val);
+
+    if (currentNode.left) this.depthFirstRec(currentNode.left);
+    if (currentNode.right) this.depthFirstRec(currentNode.right);
+  }
 }
 
 const tree = new BinaryTree();
 tree.from([2, 3, 4, 4, 5]);
+// console.log();
 
-console.log({ tree });
+console.log({ tree: tree.depthFirstRec() });
+
+//       2
+//    3     4
+//  4  5
