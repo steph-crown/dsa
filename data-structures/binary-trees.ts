@@ -72,13 +72,29 @@ class BinaryTree<T> {
     if (currentNode.left) this.depthFirstRec(currentNode.left);
     if (currentNode.right) this.depthFirstRec(currentNode.right);
   }
+
+  find(val: T) {
+    if (!this.root) return false;
+
+    const queue = [this.root];
+
+    while (queue.length) {
+      const currentNode = queue.shift();
+      if (currentNode?.val === val) return true;
+
+      if (currentNode?.left) queue.push(currentNode.left);
+      if (currentNode?.right) queue.push(currentNode.right);
+    }
+
+    return false;
+  }
 }
 
 const tree = new BinaryTree();
 tree.from([2, 3, 4, 4, 5]);
 // console.log();
 
-console.log({ tree: tree.depthFirstRec() });
+console.log({ tree: tree.find(3) });
 
 //       2
 //    3     4
