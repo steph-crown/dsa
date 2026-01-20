@@ -4,4 +4,5 @@ pub mod p1411_no_ways_to_paint_grid;
 pub mod p1975_max_matrix_sum;
 pub mod p1_two_sum;
 pub mod p217_contains_duplicate;
+pub mod p3314_construct_min_bitwise_array;
 pub mod p961_n_repeated_elements;
