@@ -3,6 +3,7 @@ pub mod p1390_four_divisors;
 pub mod p1411_no_ways_to_paint_grid;
 pub mod p1877_minimize_maximum_pair_sum_in_array;
 pub mod p1975_max_matrix_sum;
+pub mod p1984_minimum_difference_between_highest_n_lowest_of_k_scores;
 pub mod p1_two_sum;
 pub mod p217_contains_duplicate;
 pub mod p3314_construct_min_bitwise_array;
