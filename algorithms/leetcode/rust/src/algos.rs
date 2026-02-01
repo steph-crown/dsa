@@ -7,5 +7,6 @@ pub mod p1975_max_matrix_sum;
 pub mod p1984_minimum_difference_between_highest_n_lowest_of_k_scores;
 pub mod p1_two_sum;
 pub mod p217_contains_duplicate;
+pub mod p3010_divide_an_array_Into_subarrays_with_minimum_cost;
 pub mod p3314_construct_min_bitwise_array;
 pub mod p961_n_repeated_elements;
