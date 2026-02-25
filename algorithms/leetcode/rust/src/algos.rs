@@ -1,5 +1,6 @@
 pub mod p1200_minimum_absolute_difference;
 pub mod p121_best_time_to_buy_and_sell_stocks;
+pub mod p1356_sort_integers_by_the_number_of_1_bits;
 pub mod p1390_four_divisors;
 pub mod p1411_no_ways_to_paint_grid;
 pub mod p1877_minimize_maximum_pair_sum_in_array;
@@ -11,5 +12,6 @@ pub mod p3010_divide_an_array_into_subarrays_with_minimum_cost;
 pub mod p3013;
 pub mod p3314_construct_min_bitwise_array;
 pub mod p3637_trionic_array_I;
+pub mod p3713_longest_balanced_substring;
 pub mod p3719_longest_balanced_subarray_1;
 pub mod p961_n_repeated_elements;

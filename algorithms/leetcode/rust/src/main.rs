@@ -1,5 +1,6 @@
 use crate::algos::{
-  p1_two_sum, p1390_four_divisors, p1411_no_ways_to_paint_grid, p1975_max_matrix_sum,
+  p1_two_sum, p1356_sort_integers_by_the_number_of_1_bits, p1390_four_divisors,
+  p1411_no_ways_to_paint_grid, p1975_max_matrix_sum,
   p1984_minimum_difference_between_highest_n_lowest_of_k_scores,
 };
 
