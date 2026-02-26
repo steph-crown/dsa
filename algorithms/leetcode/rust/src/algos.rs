@@ -2,6 +2,7 @@ pub mod p1200_minimum_absolute_difference;
 pub mod p121_best_time_to_buy_and_sell_stocks;
 pub mod p1356_sort_integers_by_the_number_of_1_bits;
 pub mod p1390_four_divisors;
+pub mod p1404_number_in_binary_representation_to_one;
 pub mod p1411_no_ways_to_paint_grid;
 pub mod p1877_minimize_maximum_pair_sum_in_array;
 pub mod p1975_max_matrix_sum;
