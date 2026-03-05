@@ -4,6 +4,7 @@ pub mod p1356_sort_integers_by_the_number_of_1_bits;
 pub mod p1390_four_divisors;
 pub mod p1404_number_in_binary_representation_to_one;
 pub mod p1411_no_ways_to_paint_grid;
+pub mod p1582_special_positions_in_a_binary_matrix;
 pub mod p1877_minimize_maximum_pair_sum_in_array;
 pub mod p1975_max_matrix_sum;
 pub mod p1984_minimum_difference_between_highest_n_lowest_of_k_scores;
