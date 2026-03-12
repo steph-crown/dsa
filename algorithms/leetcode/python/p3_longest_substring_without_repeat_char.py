@@ -26,19 +26,14 @@ class Solution:
     char_set = { s[0] }
 
     for right in range(1, len(s)):
-      if s[right] in char_set:
-        while left < right:
-          char_set.remove(s[left])
-          left += 1
+      while s[right] in char_set:
+        char_set.remove(s[left])
+        left += 1
 
-          if s[right] not in char_set:
-            char_set.add(s[right])
-            break
-      else:
-        char_set.add(s[right])
-        longest = max(longest, right + 1 - left)
+      char_set.add(s[right])
+      longest = max(longest, right + 1 - left)
 
     return longest
 
 solution = Solution()
-print(solution.lengthOfLongestSubstring(" "))
+print(solution.lengthOfLongestSubstring("asbsbsjaaasjsbbdjs"))
