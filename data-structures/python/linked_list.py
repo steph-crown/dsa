@@ -38,6 +38,9 @@ class LinkedList:
 
     return elements
 
+  def __str__(self) -> str:
+    return self.display() + " { size: " + str(self.size) + " }"
+
   def __len__(self):
     return self.size
 
@@ -85,13 +88,33 @@ class LinkedList:
         tail = self.tail
         curr.next = None
         self.tail = curr
+        self.size -= 1
         return tail
 
       curr = curr.next
 
+  def pop_left(self):
+    if self.head is None:
+      return None
+    val = self.head.val
+    self.size -= 1
+    self.head = self.head.next
+    return val
 
+  def remove(self, val):
+    curr = self.head
 
+    if curr is None:
+      return None
 
+    if curr.val == val:
+      return self.pop_left()
+
+    while curr is not None:
+      if curr.next is not None and  curr.next.val == val:
+        curr.next = curr.next.next
+
+        return val
 
 
 
@@ -102,9 +125,16 @@ list.append(9)
 list.prepend(78)
 list.append(13)
 list.prepend(3)
-print(list.display())
-print(list.size)
+# print(list)
+# print(list.size)
 list.insert(20, list.size)
 
-print(list.display())
+print(list)
 print(list.pop())
+print(list)
+
+print(list.pop_left())
+print(list)
+
+print(list.remove(78))
+print(list)
