@@ -19,6 +19,7 @@ class LinkedList:
     self.tail = None
     self.size = 0
 
+
   @property
   def is_empty(self):
     return self.head is None
