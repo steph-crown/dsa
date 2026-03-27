@@ -6,6 +6,13 @@ class Node:
   def __str__(self) -> str:
     return str(self.val)
 
+def run_after(func):
+    def wrapper(self, *args, **kwargs):
+        result = func(self, *args, **kwargs)  # Run the actual method
+        self._after_each()                    # Run your "end code"
+        return result                         # Return the original result
+    return wrapper
+
 class LinkedList:
   def __init__(self):
     self.head = None
@@ -16,6 +23,10 @@ class LinkedList:
   def is_empty(self):
     return self.head is None
 
+  def _after_each(self):
+    print("i love you")
+
+  @run_after
   def append(self, val):
     node = Node(val)
 
