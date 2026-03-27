@@ -38,6 +38,16 @@ class DoublyLinkedList:
       curr = curr.next
     return res
 
+  def prepend(self, val):
+    node = Node(val, None, self.head)
+    if self.head is not None:
+      self.head.prev = node
+    self.head = node
+    self.size += 1
+
+  def __len__(self):
+    return self.size
+
   def __str__(self) -> str:
     return f"{self.display()} \t size: {self.size} \t tail: {self.tail}"
 
@@ -47,4 +57,5 @@ list.append(3)
 list.append(9)
 list.append(2)
 list.append(4)
+list.prepend(49)
 print(list)
