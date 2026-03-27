@@ -10,6 +10,7 @@ class LinkedList:
   def __init__(self):
     self.head = None
     self.tail = None
+    self.size = 0
 
   @property
   def is_empty(self):
@@ -25,6 +26,7 @@ class LinkedList:
     else:
       self.tail.next = node
       self.tail = node
+    self.size += 1
 
   def display(self):
     elements = ""
@@ -36,9 +38,61 @@ class LinkedList:
 
     return elements
 
+  def __len__(self):
+    return self.size
+
   def prepend(self, val):
     node = Node(val, self.head)
     self.head = node
+    self.size += 1
+
+  def insert(self, val, index):
+    if index > len(self):
+      raise IndexError("index beyond bounds")
+
+    i = 0
+    curr = self.head
+    node = Node(val)
+
+    if index == 0:
+      self.prepend(val)
+      return
+
+    if index == len(self):
+      self.append(val)
+      return
+
+    while i < index:
+      if curr is None:
+        curr = Node(None)
+
+      if i == index - 1:
+        node.next = curr.next
+        curr.next = node
+        self.size += 1
+        return
+
+      curr = curr.next
+      i += 1
+
+  def pop(self):
+    curr = self.head
+
+    while True:
+      if curr is None:
+        return None
+      if curr.next is self.tail:
+        tail = self.tail
+        curr.next = None
+        self.tail = curr
+        return tail
+
+      curr = curr.next
+
+
+
+
+
 
 
 
@@ -49,3 +103,8 @@ list.prepend(78)
 list.append(13)
 list.prepend(3)
 print(list.display())
+print(list.size)
+list.insert(20, list.size)
+
+print(list.display())
+print(list.pop())
