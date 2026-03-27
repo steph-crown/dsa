@@ -45,6 +45,30 @@ class DoublyLinkedList:
     self.head = node
     self.size += 1
 
+  def insert(self, val, idx):
+    if idx > len(self):
+      raise IndexError("out of bounds!")
+    if idx == 0:
+      self.prepend(val)
+      return
+    if idx == len(self):
+      self.append(val)
+      return
+    i = 0
+    curr = self.head
+    node = Node(val)
+    while i <= idx:
+      if curr is None:
+        return None
+      if i == idx and curr.prev:
+        node.next = curr
+        node.prev = curr.prev
+        curr.prev.next = node
+        curr.prev = node
+      curr = curr.next
+      i += 1
+    self.size += 1
+
   def __len__(self):
     return self.size
 
@@ -58,4 +82,5 @@ list.append(9)
 list.append(2)
 list.append(4)
 list.prepend(49)
+list.insert(23, 2)
 print(list)
